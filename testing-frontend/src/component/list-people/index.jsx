@@ -18,12 +18,12 @@ class ListPeople extends Component {
 
     addPerson = () => {
         // route to add person page
-        this.props.history.push("/add-person")
+        this.props.history.push("/add-or-update-person/_add")
     }
 
     editPerson = (id) => {
         // route to update person page
-        this.props.history.push(`/update-person/${id}`)
+        this.props.history.push(`/add-or-update-person/${id}`)
     }
 
     render() {

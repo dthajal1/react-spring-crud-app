@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ListPeople from "./component/list-people/index";
 import AddPerson from "./component/add-person/index";
 import UpdatePerson from "./component/update-person";
+import AddOrUpdatePerson from "./component/add-or-update-person";
 
 function App() {
 
@@ -12,9 +13,9 @@ function App() {
           <Switch>
             <Route path="/" exact component={ListPeople}></Route>
             <Route path="/people" component={ListPeople}></Route>
-            <Route path="/add-person" component={AddPerson}></Route>
+            <Route path="/add-or-update-person/:id" component={AddOrUpdatePerson}></Route>
             {/* :id <-- dynamic value */}
-            <Route path="/update-person/:id" component={UpdatePerson}></Route>
+            {/* <Route path="/update-person/:id" component={UpdatePerson}></Route> */}
           </Switch>
       </BrowserRouter>
     </div>
