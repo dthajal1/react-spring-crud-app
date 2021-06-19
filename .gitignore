@@ -1,0 +1,7 @@
+.idea
+./testing-backend/testing-backend.iml
+
+./testing-backend/target
+./testing-frontend/node_modules
+
+./testing-frontend/package-lock.json
