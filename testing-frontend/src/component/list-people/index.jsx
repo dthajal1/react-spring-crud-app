@@ -26,6 +26,17 @@ class ListPeople extends Component {
         this.props.history.push(`/add-or-update-person/${id}`)
     }
 
+    deletePerson = (id) => {
+        PeopleService.deletePerson(id).then(res => {
+            // can also call rest api but can improving by simply filtering out the deleted person
+            this.setState({people: this.state.people.filter((person) => person.id !== id)})
+        })
+    }
+
+    viewPerson = (id) => {
+        this.props.history.push(`view-person/${id}`)
+    }
+
     render() {
         return (
             <div>
@@ -35,6 +46,8 @@ class ListPeople extends Component {
                                 <p><span>{person.id}. </span>{person.name} 
                                     <span>
                                         <button onClick={() => this.editPerson(person.id)}>Update</button>
+                                        <button onClick={() => this.deletePerson(person.id)}>Delete</button>
+                                        <button onClick={() => this.viewPerson(person.id)}>View</button>
                                     </span>
                                 </p>
                             </div>

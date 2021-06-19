@@ -7,6 +7,8 @@ class AddOrUpdatePerson extends Component {
         super(props)
 
         this.state = {
+            // get the id from the url parameters
+            // from localhost:8080/api/people/{id}
             id: this.props.match.params.id,
             name: ""
         }

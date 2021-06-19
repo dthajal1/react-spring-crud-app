@@ -26,18 +26,18 @@ public class PersonController {
         return personService.findAll();
     }
 
-    @PostMapping("/create")
+    @PostMapping("/people")
     public Person createPerson(@RequestBody Person person) {
         return personService.save(person);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/people/{id}")
     public Person getPerson(@PathVariable String id) {
         return personService.findById(Long.valueOf(id));
         // need to throw exception if not found?
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/people/{id}")
     public Person updatePerson(@PathVariable String id, @RequestBody Person person) {
         Person oldPerson = personService.findById(Long.valueOf(id));
         oldPerson.setName(person.getName());
@@ -45,6 +45,11 @@ public class PersonController {
         Person updatedPerson = personService.save(oldPerson);
         return updatedPerson;
         // need to throw exception?
+    }
+
+    @DeleteMapping("/people/{id}")
+    public void deletePerson(@PathVariable String id) {
+        personService.deleteById(Long.valueOf(id));
     }
 
 

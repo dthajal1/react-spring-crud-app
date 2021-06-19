@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const PEOPLE_REST_API_BASE_URL = "http://localhost:8080/api"; // making request to the API we created earlier
+const PEOPLE_REST_API_BASE_URL = "http://localhost:8080/api/people"; // making request to the API we created earlier
 
 
 class PeopleService {
@@ -10,7 +10,7 @@ class PeopleService {
     }
 
     createPerson(person) {
-        return axios.post(PEOPLE_REST_API_BASE_URL + "/create", person)
+        return axios.post(PEOPLE_REST_API_BASE_URL, person)
     }
 
     getPersonById(id) {
@@ -19,6 +19,10 @@ class PeopleService {
 
     updatePerson(id, person) {
         return axios.put(PEOPLE_REST_API_BASE_URL + "/" + id, person);
+    }
+
+    deletePerson(id) {
+        return axios.delete(PEOPLE_REST_API_BASE_URL + "/" + id)
     }
 }
 
